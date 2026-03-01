@@ -1,0 +1,87 @@
+/* Estilos base del contenedor */
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  overflow: hidden; /* CROP GENERAL: Si algo se sale, se corta */
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.recipe-image {
+  width: 100%;
+  object-fit: cover; /* CROP DE IMAGEN: La recorta sin deformarla */
+}
+
+/* Clases para recortar textos largos */
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Agrega "..." al final */
+}
+
+.text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Máximo 3 líneas de texto */
+  line-clamp: 3; /* Agregamos la propiedad estándar para quitar la advertencia */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* =========================================
+   LAS 4 VERSIONES (VARIANTES)
+========================================= */
+
+/* Variante 1: Tarjeta Clásica Vertical */
+.variant-1 {
+  max-width: 300px;
+  max-height: 400px; /* Límite de alto */
+  display: flex;
+  flex-direction: column;
+}
+.variant-1 .recipe-image { height: 180px; }
+.variant-1 .content { padding: 1rem; }
+
+/* Variante 2: Lista Horizontal Compacta */
+.variant-2 {
+  max-width: 600px;
+  height: 140px; /* Alto fijo estricto */
+  display: flex;
+  flex-direction: row;
+}
+.variant-2 .recipe-image { width: 140px; height: 100%; }
+.variant-2 .content { padding: 1rem; flex: 1; overflow: hidden; }
+
+/* Variante 3: Cuadrícula Minimalista (Solo foto y título) */
+.variant-3 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.variant-3 .recipe-image { height: 100%; }
+.variant-3 .content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 0.5rem;
+}
+.variant-3 .details { display: none; /* Ocultamos los ingredientes aquí */ }
+
+/* Variante 4: Tarjeta Detallada (Permite scroll interno si excede el tamaño) */
+.variant-4 {
+  max-width: 400px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Scroll interno en lugar de crop agresivo */
+  background-color: #fcfcfc;
+  border-left: 5px solid #ff6b6b;
+}
+.variant-4 .recipe-image { height: 200px; flex-shrink: 0; }
+.variant-4 .content { padding: 1rem; }
