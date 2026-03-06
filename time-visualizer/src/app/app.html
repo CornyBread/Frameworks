@@ -1,0 +1,13 @@
+<ng-container *ngIf="authService.isLoggedIn$ | async; else loginTpl">
+  <div style="text-align: center; color: white; padding: 50px; font-family: sans-serif; background-color: #0b132b; min-height: 100vh; margin: 0;">
+    <h1>¡Sesión iniciada correctamente! 🎉</h1>
+    <p>Aquí es donde construiremos los 10+ visualizadores del tiempo.</p>
+    <button (click)="authService.logout()" style="padding: 10px 20px; cursor: pointer; border-radius: 5px; background: #5bc0be; border: none; font-weight: bold;">
+      Cerrar Sesión
+    </button>
+  </div>
+</ng-container>
+
+<ng-template #loginTpl>
+  <app-auth></app-auth>
+</ng-template>

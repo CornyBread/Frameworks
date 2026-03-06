@@ -1,0 +1,30 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>{{ isLoginMode ? 'Iniciar Sesión' : 'Registrarse' }}</h2>
+    
+    <div class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" name="username" [(ngModel)]="username" required autocomplete="off" placeholder="Ingresa tu usuario">
+      </div>
+      
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" [(ngModel)]="pass" required placeholder="Ingresa tu contraseña">
+      </div>
+
+      <button type="submit" class="btn-primary">
+        {{ isLoginMode ? 'Entrar' : 'Crear Cuenta' }}
+      </button>
+    </form>
+
+    <p class="toggle-text">
+      {{ isLoginMode ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?' }}
+      <span class="link" (click)="toggleMode()">
+        {{ isLoginMode ? 'Regístrate aquí' : 'Inicia sesión aquí' }}
+      </span>
+    </p>
+  </div>
+</div>
