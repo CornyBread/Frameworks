@@ -1,0 +1,49 @@
+.binary-container { display: flex; justify-content: center; padding: 2rem; }
+
+.binary-board {
+  background: #1c2541;
+  padding: 2.5rem;
+  border-radius: 10px;
+  border: 2px solid #3a506b;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-end; /* Alinea los LEDs a la derecha */
+}
+
+.row { display: flex; align-items: center; gap: 1rem; }
+
+.label { 
+  color: #a0aec0; 
+  font-weight: bold; 
+  font-size: 1.2rem; 
+}
+
+.dots { display: flex; gap: 12px; }
+
+.dot {
+  width: 25px; 
+  height: 25px;
+  border-radius: 50%;
+  background-color: #0b132b; /* Color apagado */
+  border: 2px solid #2b3a55;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Efectos cuando están encendidos (true) */
+.dot.on.hour { 
+  background-color: #5bc0be; 
+  box-shadow: 0 0 12px #5bc0be; 
+  border-color: #5bc0be; 
+}
+.dot.on.minute { 
+  background-color: #e0e6ed; 
+  box-shadow: 0 0 12px #e0e6ed; 
+  border-color: #e0e6ed; 
+}
+.dot.on.second { 
+  background-color: #ff4a4a; 
+  box-shadow: 0 0 12px #ff4a4a; 
+  border-color: #ff4a4a; 
+}

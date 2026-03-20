@@ -1,0 +1,35 @@
+<div class="progress-container">
+  <div class="progress-board">
+    
+    <div class="bar-group">
+      <div class="label-row">
+        <span>Horas del día</span>
+        <span class="value">{{ hText }} / 24</span>
+      </div>
+      <div class="track">
+        <div class="fill hour-fill" [style.width.%]="hPercent"></div>
+      </div>
+    </div>
+
+    <div class="bar-group">
+      <div class="label-row">
+        <span>Minutos de la hora</span>
+        <span class="value">{{ mText }} / 60</span>
+      </div>
+      <div class="track">
+        <div class="fill minute-fill" [style.width.%]="mPercent"></div>
+      </div>
+    </div>
+
+    <div class="bar-group">
+      <div class="label-row">
+        <span>Segundos del minuto</span>
+        <span class="value">{{ sText }} / 60</span>
+      </div>
+      <div class="track">
+        <div class="fill second-fill" [style.width.%]="sPercent"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

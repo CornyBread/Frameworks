@@ -1,0 +1,31 @@
+<div class="dashboard-wrapper">
+  <header class="top-bar">
+    <h2>Visualizador del Tiempo</h2>
+    <button class="btn-logout" (click)="authService.logout()">Cerrar Sesión</button>
+  </header>
+
+  <div class="controls-panel">
+    <div class="control-group">
+      <label>Selecciona un Reloj:</label>
+      <select [(ngModel)]="selectedClock">
+        <option value="analog">Reloj Analógico</option>
+        <option value="binary">Reloj Binario</option>
+        <option value="progress">Barras de Progreso</option>
+        </select>
+    </div>
+
+    <div class="control-group">
+      <label>Alterar Tiempo: <strong>{{ sliderValue > 0 ? '+' : '' }}{{ sliderValue }}h</strong></label>
+      <div class="slider-row">
+        <input type="range" min="-24" max="24" step="1" [(ngModel)]="sliderValue" (input)="onSliderChange()">
+        <button class="btn-reset" (click)="resetTime()">Hora Real</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="display-area" [ngSwitch]="selectedClock">
+    <app-analog *ngSwitchCase="'analog'"></app-analog>
+    <app-binary *ngSwitchCase="'binary'"></app-binary>
+    <app-progress *ngSwitchCase="'progress'"></app-progress>
+    </div>
+</div>
