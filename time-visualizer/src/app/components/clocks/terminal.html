@@ -1,0 +1,30 @@
+<div class="terminal-container">
+  <div class="terminal-window">
+    
+    <div class="terminal-header">
+      <span class="btn red"></span>
+      <span class="btn yellow"></span>
+      <span class="btn green"></span>
+      <span class="title">root@time-server:~</span>
+    </div>
+    
+    <div class="terminal-body">
+      <p><span class="prompt">root@sys:~#</span> ./run_chronos.sh</p>
+      <p class="sys-msg">[ OK ] SYSTEM DAEMON STARTED...</p>
+      <br>
+      
+      <p><span class="label">SYS_EPOCH :</span> <span class="value">{{ unixEpoch }}</span></p>
+      <p><span class="label">HEX_DUMP  :</span> <span class="value">{{ hexTime }}</span></p>
+      <br>
+      
+      <p>
+        <span class="label">LOCAL_TIME:</span> 
+        <span class="time-main">{{ localTime }}</span><span class="ms">.{{ milliseconds }}</span>
+      </p>
+      
+      <br>
+      <p><span class="prompt">root@sys:~#</span> <span class="cursor">█</span></p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="concentric-container">
+  
+  <div class="svg-wrapper">
+    <svg width="250" height="250" viewBox="0 0 250 250">
+      <circle cx="125" cy="125" r="90" class="track"></circle>
+      <circle cx="125" cy="125" r="70" class="track"></circle>
+      <circle cx="125" cy="125" r="50" class="track"></circle>
+
+      <circle cx="125" cy="125" r="90" class="ring hour-ring"
+              [attr.stroke-dasharray]="cHours"
+              [attr.stroke-dashoffset]="offHours"></circle>
+              
+      <circle cx="125" cy="125" r="70" class="ring minute-ring"
+              [attr.stroke-dasharray]="cMinutes"
+              [attr.stroke-dashoffset]="offMinutes"></circle>
+              
+      <circle cx="125" cy="125" r="50" class="ring second-ring"
+              [attr.stroke-dasharray]="cSeconds"
+              [attr.stroke-dashoffset]="offSeconds"></circle>
+    </svg>
+  </div> 
+
+  <div class="time-text">{{ timeText }}</div>
+
+</div>

@@ -6,11 +6,14 @@ import { TimeService } from '../../services/time';
 import { AnalogComponent } from '../clocks/analog';
 import { BinaryComponent } from '../clocks/binary';
 import { ProgressComponent } from '../clocks/progress';
+import { ConcentricComponent } from '../clocks/concentric';
+import { TerminalComponent } from '../clocks/terminal';
+import { DigitalComponent } from '../clocks/digital';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, AnalogComponent, BinaryComponent, ProgressComponent],
+  imports: [CommonModule, FormsModule, AnalogComponent, BinaryComponent, ProgressComponent, ConcentricComponent, TerminalComponent, DigitalComponent],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })

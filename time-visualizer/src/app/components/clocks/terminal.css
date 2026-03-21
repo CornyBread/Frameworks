@@ -1,0 +1,63 @@
+.terminal-container { 
+  display: flex; justify-content: center; padding: 2rem; width: 100%; 
+}
+
+.terminal-window {
+  background-color: #050a15; /* Fondo extra oscuro para la consola */
+  border: 1px solid #3a506b;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 550px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 255, 0, 0.05); /* Brillo verde sutil */
+  font-family: 'Courier New', Courier, monospace; /* Fuente de código */
+}
+
+.terminal-header {
+  background-color: #1c2541;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #3a506b;
+}
+
+/* Botones estilo macOS */
+.btn { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+.btn.red { background-color: #ff5f56; }
+.btn.yellow { background-color: #ffbd2e; }
+.btn.green { background-color: #27c93f; }
+
+.title { 
+  color: #a0aec0; font-size: 0.85rem; 
+  margin-left: auto; margin-right: auto; padding-right: 40px;
+}
+
+.terminal-body { 
+  padding: 20px; color: #4af626; /* Verde Matrix */
+  font-size: 1.1rem; line-height: 1.6; 
+}
+
+p { margin: 5px 0; }
+
+.prompt { color: #5bc0be; font-weight: bold; }
+.sys-msg { color: #a0aec0; }
+.label { color: #e0e6ed; width: 130px; display: inline-block; }
+.value { color: #ffbd2e; /* Amarillo mostaza para los datos extra */ }
+
+/* Resaltamos la hora principal */
+.time-main { 
+  font-size: 1.8rem; font-weight: bold; 
+  color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.6); 
+}
+.ms { font-size: 1rem; color: #4af626; }
+
+/* El cursor parpadeante clásico */
+.cursor { 
+  animation: blink 1s step-end infinite; 
+  color: #4af626; 
+}
+
+@keyframes blink { 
+  0%, 100% { opacity: 1; } 
+  50% { opacity: 0; } 
+}

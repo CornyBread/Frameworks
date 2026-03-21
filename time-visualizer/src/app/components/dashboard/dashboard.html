@@ -11,6 +11,9 @@
         <option value="analog">Reloj Analógico</option>
         <option value="binary">Reloj Binario</option>
         <option value="progress">Barras de Progreso</option>
+        <option value="concentric">Reloj Concéntrico</option>
+        <option value="terminal">Reloj Terminal</option>
+        <option value="digital">Reloj Digital</option>
         </select>
     </div>
 
@@ -27,5 +30,8 @@
     <app-analog *ngSwitchCase="'analog'"></app-analog>
     <app-binary *ngSwitchCase="'binary'"></app-binary>
     <app-progress *ngSwitchCase="'progress'"></app-progress>
+    <app-concentric *ngSwitchCase="'concentric'"></app-concentric>
+    <app-terminal *ngSwitchCase="'terminal'"></app-terminal>
+    <app-digital *ngSwitchCase="'digital'"></app-digital>
     </div>
 </div>
