@@ -1,0 +1,32 @@
+<div class="blocks-container">
+  <div class="blocks-board">
+
+    <div class="section">
+      <div class="label">HORAS ({{ h }}/24)</div>
+      <div class="grid hours-grid">
+        <div *ngFor="let _ of hoursArray; let i = index" 
+             class="block h-block" 
+             [class.active]="i < h"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="label">MINUTOS ({{ m }}/60)</div>
+      <div class="grid minutes-grid">
+        <div *ngFor="let _ of minutesArray; let i = index" 
+             class="block m-block" 
+             [class.active]="i < m"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="label">SEGUNDOS ({{ s }}/60)</div>
+      <div class="grid seconds-grid">
+        <div *ngFor="let _ of secondsArray; let i = index" 
+             class="block s-block" 
+             [class.active]="i < s"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

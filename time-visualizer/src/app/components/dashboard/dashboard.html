@@ -14,6 +14,11 @@
         <option value="concentric">Reloj Concéntrico</option>
         <option value="terminal">Reloj Terminal</option>
         <option value="digital">Reloj Digital</option>
+        <option value="text">Reloj de Texto</option>
+        <option value="orbital">Reloj Orbital</option>
+        <option value="odometer">Reloj Odómetro</option>
+        <option value="blocks">Reloj de Bloques</option>
+
         </select>
     </div>
 
@@ -33,5 +38,10 @@
     <app-concentric *ngSwitchCase="'concentric'"></app-concentric>
     <app-terminal *ngSwitchCase="'terminal'"></app-terminal>
     <app-digital *ngSwitchCase="'digital'"></app-digital>
+    <app-text *ngSwitchCase="'text'"></app-text>
+    <app-orbital *ngSwitchCase="'orbital'"></app-orbital>
+    <app-odometer *ngSwitchCase="'odometer'"></app-odometer>
+    <app-blocks *ngSwitchCase="'blocks'"></app-blocks>
+  
     </div>
 </div>

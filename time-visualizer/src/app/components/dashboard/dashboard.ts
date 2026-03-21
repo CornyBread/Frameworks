@@ -9,11 +9,16 @@ import { ProgressComponent } from '../clocks/progress';
 import { ConcentricComponent } from '../clocks/concentric';
 import { TerminalComponent } from '../clocks/terminal';
 import { DigitalComponent } from '../clocks/digital';
+import { TextComponent } from '../clocks/text';
+import { OrbitalComponent } from '../clocks/orbital';
+import { OdometerComponent } from '../clocks/odometer';
+import { BlocksComponent } from '../clocks/blocks';
+
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, AnalogComponent, BinaryComponent, ProgressComponent, ConcentricComponent, TerminalComponent, DigitalComponent],
+  imports: [CommonModule, FormsModule, AnalogComponent, BinaryComponent, ProgressComponent, ConcentricComponent, TerminalComponent, DigitalComponent, TextComponent, OrbitalComponent, OdometerComponent, BlocksComponent],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })

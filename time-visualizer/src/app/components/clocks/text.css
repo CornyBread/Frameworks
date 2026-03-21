@@ -1,0 +1,52 @@
+.text-container { 
+  display: flex; justify-content: center; align-items: center; padding: 2rem; width: 100%; 
+}
+
+.text-card {
+  background: transparent; /* Sin fondo de tarjeta para que las letras floten */
+  padding: 2rem;
+  max-width: 800px;
+  text-align: left;
+}
+
+.sentence {
+  font-family: 'Georgia', 'Times New Roman', serif; /* Fuente serif para darle ese toque de libro/literatura */
+  font-size: 4rem; /* Texto masivo */
+  line-height: 1.4;
+  display: flex;
+  flex-wrap: wrap; /* Permite que las palabras bajen a la siguiente línea si no caben */
+  gap: 15px 20px; /* Espacio horizontal y vertical entre palabras */
+  align-items: baseline;
+}
+
+/* Las palabras conectoras (son las, y, con, segundos) */
+.muted {
+  color: #3a506b;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+/* Las palabras que representan el tiempo vivo */
+.highlight {
+  font-weight: bold;
+  font-style: italic; /* Las destacamos en cursiva */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Colores de nuestra paleta */
+.hour { color: #5bc0be; text-shadow: 0 0 20px rgba(91, 192, 190, 0.3); }
+.minute { color: #e0e6ed; text-shadow: 0 0 20px rgba(224, 230, 237, 0.3); }
+.second { color: #ff4a4a; text-shadow: 0 0 20px rgba(255, 74, 74, 0.3); }
+
+/* Pequeña animación para que no se vea tan brusco cuando cambia una palabra */
+@keyframes fadeIn {
+  from { opacity: 0.5; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .sentence {
+    font-size: 2.5rem;
+  }
+}

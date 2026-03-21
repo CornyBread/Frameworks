@@ -1,0 +1,48 @@
+<div class="odometer-container">
+  <div class="odometer-board">
+
+    <div class="digit-group hour-group">
+      <div class="window">
+        <div class="strip" [style.transform]="'translateY(' + (-hTens * 80) + 'px)'">
+          <div *ngFor="let n of strip" class="num">{{ n }}</div>
+        </div>
+      </div>
+      <div class="window">
+        <div class="strip" [style.transform]="'translateY(' + (-hUnits * 80) + 'px)'">
+          <div *ngFor="let n of strip" class="num">{{ n }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator">:</div>
+
+    <div class="digit-group minute-group">
+      <div class="window">
+        <div class="strip" [style.transform]="'translateY(' + (-mTens * 80) + 'px)'">
+          <div *ngFor="let n of strip" class="num">{{ n }}</div>
+        </div>
+      </div>
+      <div class="window">
+        <div class="strip" [style.transform]="'translateY(' + (-mUnits * 80) + 'px)'">
+          <div *ngFor="let n of strip" class="num">{{ n }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator">:</div>
+
+    <div class="digit-group second-group">
+      <div class="window">
+        <div class="strip" [style.transform]="'translateY(' + (-sTens * 80) + 'px)'">
+          <div *ngFor="let n of strip" class="num">{{ n }}</div>
+        </div>
+      </div>
+      <div class="window">
+        <div class="strip" [style.transform]="'translateY(' + (-sUnits * 80) + 'px)'">
+          <div *ngFor="let n of strip" class="num">{{ n }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.odometer-container { 
+  display: flex; justify-content: center; align-items: center; padding: 2rem; width: 100%; 
+}
+
+.odometer-board {
+  display: flex; align-items: center; 
+  background: #1c2541; padding: 2rem 3rem;
+  border-radius: 12px; border: 2px solid #3a506b; 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.digit-group { display: flex; gap: 6px; }
+
+.window {
+  width: 60px; 
+  height: 80px; /* Tamaño exacto de un solo número */
+  background: #0b132b; 
+  overflow: hidden; /* Oculta el resto de la cinta */
+  position: relative;
+  border-radius: 6px; border: 1px solid #2b3a55;
+  /* Sombra interior agresiva para dar ilusión de cilindro curvo */
+  box-shadow: inset 0 15px 15px -10px rgba(0,0,0,0.9), 
+              inset 0 -15px 15px -10px rgba(0,0,0,0.9);
+}
+
+.strip {
+  display: flex; flex-direction: column;
+  /* Transición fluida con un ligero "rebote" al final simulando mecánica */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1.2); 
+}
+
+.num {
+  width: 60px; height: 80px; /* Debe coincidir con la ventana */
+  display: flex; justify-content: center; align-items: center;
+  font-size: 3.5rem; font-family: 'Courier New', monospace; font-weight: bold;
+}
+
+.separator { 
+  font-size: 3rem; color: #3a506b; margin: 0 15px; 
+  font-weight: bold; padding-bottom: 10px; 
+}
+
+/* Colores de nuestra paleta */
+.hour-group .num { color: #5bc0be; text-shadow: 0 0 10px rgba(91, 192, 190, 0.4); }
+.minute-group .num { color: #e0e6ed; text-shadow: 0 0 10px rgba(224, 230, 237, 0.4); }
+.second-group .num { color: #ff4a4a; text-shadow: 0 0 10px rgba(255, 74, 74, 0.4); }

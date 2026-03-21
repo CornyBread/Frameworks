@@ -1,0 +1,111 @@
+.orbital-container { 
+  display: flex; justify-content: center; align-items: center; padding: 2rem; width: 100%; 
+  perspective: 1000px; /* Necesario para el efecto 3D de elipse */
+}
+
+.solar-system {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  /* Tumbamos todo el sistema 60 grados para crear elipses visuales */
+  transform: rotateX(60deg); 
+  transform-style: preserve-3d;
+}
+
+/* El Sol Central */
+.sun {
+  position: absolute; top: 50%; left: 50%;
+  width: 40px; height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(-60deg); /* Lo enderezamos */
+  box-shadow: 0 0 30px #ffffff, 0 0 60px rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+  animation: sunPulse 0.5s infinite alternate; /* Parpadeo rápido */
+}
+
+.time-digital {
+  font-family: monospace; font-size: 0.7rem; color: #0b132b; font-weight: bold;
+}
+
+/* Pistas visuales de las órbitas (elipses oscuras) */
+.orbit-track {
+  position: absolute; top: 50%; left: 50%;
+  border: 1px solid #1c2541;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.track-h { width: 280px; height: 280px; }
+.track-m { width: 200px; height: 200px; }
+.track-s { width: 120px; height: 120px; }
+
+/* Contenedores de Órbitas (estos son los que rotan) */
+.orbit {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 50%;
+  animation-name: orbitRotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Planetas (puntos brillantes en la órbita) */
+.planet {
+  position: absolute;
+  top: 50%; left: -10px; /* Posición inicial a la izquierda */
+  border-radius: 50%;
+  /* Enderezamos el planeta para que no se vea tumbado */
+  transform: translateY(-50%) rotateX(-60deg); 
+  transform-origin: center center;
+}
+
+/* --- Configuraciones Específicas --- */
+
+/* Segundos (Rojo, Rápido) */
+.second-orbit {
+  width: 120px; height: 120px; top: 90px; left: 90px;
+  animation-duration: 60s;
+  animation-delay: var(--s-offset, 0s); /* Angular setea esto */
+}
+.second-planet {
+  width: 10px; height: 10px;
+  background-color: #ff4a4a;
+  box-shadow: 0 0 10px #ff4a4a, 0 0 20px rgba(255,74,74,0.5);
+}
+
+/* Minutos (Blanco, Medio) */
+.minute-orbit {
+  width: 200px; height: 200px; top: 50px; left: 50px;
+  animation-duration: 3600s;
+  animation-delay: var(--m-offset, 0s);
+}
+.minute-planet {
+  width: 15px; height: 15px;
+  background-color: #e0e6ed;
+  box-shadow: 0 0 15px #e0e6ed, 0 0 30px rgba(224,230,237,0.5);
+}
+
+/* Horas (Cian, Lento) */
+.hour-orbit {
+  width: 280px; height: 280px; top: 10px; left: 10px;
+  animation-duration: 43200s; /* 12 horas */
+  animation-delay: var(--h-offset, 0s);
+}
+.hour-planet {
+  width: 20px; height: 20px;
+  background-color: #5bc0be;
+  box-shadow: 0 0 20px #5bc0be, 0 0 40px rgba(91,192,190,0.5);
+}
+
+/* --- Animaciones Keyframes --- */
+
+@keyframes orbitRotate {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(360deg); }
+}
+
+@keyframes sunPulse {
+  0% { box-shadow: 0 0 30px #ffffff, 0 0 60px rgba(255,255,255,0.5); }
+  100% { box-shadow: 0 0 15px #ffffff, 0 0 30px rgba(255,255,255,0.3); }
+}
