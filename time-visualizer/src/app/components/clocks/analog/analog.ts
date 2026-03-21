@@ -2,7 +2,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { TimeService } from '../../services/time';
+import { TimeService } from '../../../services/time';
 
 @Component({
   selector: 'app-analog',

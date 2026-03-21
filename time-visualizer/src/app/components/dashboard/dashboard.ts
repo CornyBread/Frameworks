@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth';
 import { TimeService } from '../../services/time';
-import { AnalogComponent } from '../clocks/analog';
-import { BinaryComponent } from '../clocks/binary';
-import { ProgressComponent } from '../clocks/progress';
-import { ConcentricComponent } from '../clocks/concentric';
-import { TerminalComponent } from '../clocks/terminal';
-import { DigitalComponent } from '../clocks/digital';
-import { TextComponent } from '../clocks/text';
-import { OrbitalComponent } from '../clocks/orbital';
-import { OdometerComponent } from '../clocks/odometer';
-import { BlocksComponent } from '../clocks/blocks';
+import { AnalogComponent } from '../clocks/analog/analog';
+import { BinaryComponent } from '../clocks/binary/binary';
+import { ProgressComponent } from '../clocks/progress/progress';
+import { ConcentricComponent } from '../clocks/concentric/concentric';
+import { TerminalComponent } from '../clocks/terminal/terminal';
+import { DigitalComponent } from '../clocks/digital/digital';
+import { TextComponent } from '../clocks/text/text';
+import { OrbitalComponent } from '../clocks/orbital/orbital';
+import { OdometerComponent } from '../clocks/odometer/odometer';
+import { BlocksComponent } from '../clocks/blocks/blocks';
 
 
 @Component({
