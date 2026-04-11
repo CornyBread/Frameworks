@@ -28,7 +28,6 @@ export class OrbitalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Para este reloj creativo, solo necesitamos suscribirnos una vez al inicio
-    // para establecer la posición inicial. El CSS se encargará del movimiento continuo.
     // Sin embargo, si el usuario usa el SLIDER del tiempo, necesitamos actualizar.
     this.timeSub = this.timeService.currentTime$.subscribe(time => {
       const h = time.getHours();
@@ -38,9 +37,6 @@ export class OrbitalComponent implements OnInit, OnDestroy {
       // Formato digital para el centro
       this.timeText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
 
-      // Si la hora cambia drásticamente (por el slider), 
-      // forzamos al CSS a reiniciar la animación desde el punto correcto.
-      // Usamos una técnica creativa: calculamos el "offset" negativo del delay.
       const s_offset = s;
       const m_offset = (m * 60) + s;
       const h_offset = ((h % 12) * 3600) + (m * 60) + s;

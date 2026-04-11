@@ -16,7 +16,6 @@ export class TerminalComponent implements OnInit, OnDestroy {
   unixEpoch: number = 0;
   localTime: string = '';
   hexTime: string = '';
-  milliseconds: string = '000';
 
   constructor(
     private timeService: TimeService, 
@@ -32,7 +31,6 @@ export class TerminalComponent implements OnInit, OnDestroy {
       const m = time.getMinutes().toString().padStart(2, '0');
       const s = time.getSeconds().toString().padStart(2, '0');
       
-      this.milliseconds = time.getMilliseconds().toString().padStart(3, '0');
       this.localTime = `${h}:${m}:${s}`;
       
       // Creamos un código hexadecimal estético basado en la hora

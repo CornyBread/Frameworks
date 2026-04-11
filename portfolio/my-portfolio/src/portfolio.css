@@ -1,0 +1,437 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: #0f172a;
+  --surface-color: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
+}
+
+body {
+  margin: 0;
+  padding: 0; /* Aseguramos que no haya espaciado extra */
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden; /* Evita que la página se pueda mover hacia los lados */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #334155;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.nav-logo span {
+  color: var(--accent-color);
+}
+
+.nav-contact-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-contact-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  margin-top: 4rem;
+  border-top: 1px solid #334155;
+}
+
+/* Layout Principal */
+.portfolio-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 3rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Componente Tabs Personalizado */
+.tabs-container {
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 1px solid #334155;
+}
+
+.tab-button {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 1rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.tab-button.active {
+  color: var(--accent-color);
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.tab-content {
+  padding: 2rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px; /* Evita que el texto ocupe toda la pantalla */
+  margin: 0 auto;   /* Lo centra en su contenedor */
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  background-color: #334155;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* --- Modal de Contacto --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  border: 1px solid #334155;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: var(--text-primary);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #334155;
+}
+
+.social-links a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent-hover);
+}
+
+/* --- Información de Contacto --- */
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #0f172a;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-value {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-value[href]:hover {
+  color: var(--accent-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Sección de Proyectos (Accordion & Cards) --- */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background-color: var(--surface-color);
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent-color);
+}
+
+.project-header {
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.project-header:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
+.expand-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.expanded .expand-icon {
+  transform: rotate(45deg);
+}
+
+.project-body {
+  padding: 0 2rem 2rem 2rem;
+  border-top: 1px solid #334155;
+  animation: fadeInDown 0.4s ease;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.github-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.github-btn:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* --- Carousel de Imágenes --- */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background-color: #0f172a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 0.5s ease;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.8);
+  color: white;
+  border: 1px solid #334155;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--accent-color);
+}
+
+.btn-left { left: 15px; }
+.btn-right { right: 15px; }
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 8px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: var(--accent-color);
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
