@@ -12,7 +12,7 @@ const CustomTabs = () => {
         
           <h3>Desarrollador e Investigador</h3>
           <p>
-            Hola! mi nombre es David Esber. Soy un estudiante de Ingenieria de Computacion apasionado por el desarrollo de software y la investigación tecnológica. 
+            Hola! mi nombre es David Esber, soy un estudiante de Ingenieria de Computacion apasionado por el desarrollo de software y la investigación tecnológica. 
             Me dedico a crear aplicaciones eficientes y escalables, siempre buscando aprender e implementar las mejores prácticas de la industria.
           </p>
         </div>
@@ -25,10 +25,18 @@ const CustomTabs = () => {
           <h3>Stack Principal</h3>
           <ul className="skills-list" style={{ justifyContent: 'center' }}>
             <li>React</li>
+            <li>Rust</li>
             <li>Angular</li>
             <li>Python</li>
+            <li>C#</li>
             <li>C++</li>
+            <li>SQL</li>
+            <li>NoSQL</li>
+            <li>Docker</li>
             <li>JavaScript / TypeScript</li>
+            <li>Linux</li>
+            <li>Git</li>
+            
           </ul>
         </div>
       )

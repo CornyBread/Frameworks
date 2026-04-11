@@ -1,5 +1,4 @@
-// src/components/Login.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../services/auth';
 
@@ -22,10 +21,10 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      // Llamamos a nuestro servicio de autenticación
+      // Llamamos al servicio de autenticación
       await loginUser(credentials.email, credentials.password);
       
-      // Si funciona, redirigimos a la página principal del portafolio
+      // Si el login es exitoso, redirigimos al portafolio
       navigate('/portfolio'); 
     } catch (err) {
       setError(err.message);
@@ -35,50 +34,66 @@ const Login = () => {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', fontFamily: 'sans-serif' }}>
-      <h2>Iniciar Sesión</h2>
-      
-      {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+    <div className="auth-container">
+      <div className="auth-modal">
+        {/* Opcional: Puedes descomentar la siguiente línea si quieres que la X redirija a alguna parte */}
+        {/* <span className="auth-close-icon" onClick={() => navigate('/')}>&times;</span> */}
 
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        <div>
-          <label htmlFor="email">Correo Electrónico</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={credentials.email}
-            onChange={handleChange}
-            required
-            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-          />
-        </div>
+        <h2 className="auth-title">Iniciar Sesión</h2>
+        <p className="auth-subtitle">
+          
+        </p>
         
-        <div>
-          <label htmlFor="password">Contraseña</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            required
-            style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-          />
-        </div>
+        {/* Mensaje de error visual */}
+        {error && (
+          <div style={{ color: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', padding: '10px', borderRadius: '6px', marginBottom: '1rem', textAlign: 'center', border: '1px solid #ef4444' }}>
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className="auth-form-group">
+            <label className="auth-label" htmlFor="email">Correo Electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={credentials.email}
+              onChange={handleChange}
+              placeholder="ejemplo@email.com"
+              required
+              className="auth-input"
+            />
+          </div>
+          
+          <div className="auth-form-group">
+            <label className="auth-label" htmlFor="password">Contraseña</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+              placeholder="Mínimo 8 caracteres"
+              required
+              className="auth-input"
+            />
+          </div>
+          
+          <button 
+            type="submit" 
+            disabled={isLoading}
+            className="auth-button"
+            style={{ marginTop: '10px' }}
+          >
+            {isLoading ? 'Entrando...' : 'Entrar'}
+          </button>
+        </form>
         
-        <button 
-          type="submit" 
-          disabled={isLoading}
-          style={{ padding: '10px', backgroundColor: '#0056b3', color: 'white', border: 'none', cursor: 'pointer' }}
-        >
-          {isLoading ? 'Cargando...' : 'Entrar'}
-        </button>
-      </form>
-      
-      <p style={{ marginTop: '15px' }}>
-        ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
-      </p>
+        <p className="auth-footer">
+          ¿No tienes cuenta? <Link to="/register" className="auth-link">Regístrate aquí</Link>
+        </p>
+      </div>
     </div>
   );
 };
